@@ -1,0 +1,128 @@
+<div class="container-fluid mt-3" style="background-image: url('assets/img/bg3.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 100vh;
+     padding: 20px;
+     padding-bottom: 75px;">
+
+    <!-- TITLE -->
+    <h2 class="text-center text-primary mb-3">
+        Subject List
+    </h2>
+
+    <!-- ALERT -->
+    <div *ngIf="form.error" class="alert alert-danger text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+    </div>
+
+    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+    </div>
+
+    <!-- 🔥 SEARCH CARD -->
+    <div class="d-flex justify-content-center mb-3">
+        <div class="card p-3 shadow" style="min-width: 600px;">
+            <div class="row g-2">
+
+                <!-- SUBJECT NAME -->
+                <div class="col-md-6">
+                    <input type="text" class="form-control" [(ngModel)]="form.searchParams.name"
+                        placeholder="Enter Subject Name">
+                </div>
+
+                <!-- SEARCH -->
+                <div class="col-md-3">
+                    <button (click)="search()" class="btn btn-primary w-100">
+                        Search
+                    </button>
+                </div>
+
+                <!-- RESET -->
+                <div class="col-md-3">
+                    <button (click)="reset()" class="btn btn-secondary w-100">
+                        Reset
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive mt-3" *ngIf="form.list.length > 0">
+        <table class="table table-bordered table-hover text-center bg-white shadow">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)">
+                    </th>
+                    <th>S.No</th>
+                    <th>Course</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let m of form.list; let i = index">
+
+                    <!-- ✅ FIXED CHECKBOX -->
+                    <td>
+                        <input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="m.id" [value]="m.id">
+                    </td>
+
+                    <td>{{(form.pageNo*5)+i+1}}</td>
+                    <td>{{m.courseName}}</td>
+                    <td>{{m.name}}</td>
+                    <td>{{m.description}}</td>
+
+                    <td>
+                        <button class="btn btn-sm btn-primary" (click)="forward('/subject/' + m.id)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div *ngIf="form.list.length > 0" class="d-flex justify-content-between align-items-center mt-3">
+
+        <!-- PREVIOUS -->
+        <button class="btn btn-info" (click)="previous()" [disabled]="form.pageNo == 0">
+            Previous
+        </button>
+
+        <!-- CENTER -->
+        <div>
+            <button (click)="forward('/subject')" class="btn btn-success me-2">
+                New
+            </button>
+
+            <button (click)="deleteMany()" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+
+        <!-- NEXT -->
+        <button class="btn btn-info" (click)="next()" [disabled]="form.nextListSize == 0">
+            Next
+        </button>
+
+    </div>
+
+    <!-- EMPTY -->
+    <div *ngIf="form.list.length == 0" class="text-center mt-5">
+        <button class="btn btn-primary" (click)="reset()">
+            Back
+        </button>
+    </div>
+
+</div>

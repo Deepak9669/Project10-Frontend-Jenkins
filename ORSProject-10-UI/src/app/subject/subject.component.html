@@ -1,0 +1,122 @@
+<div class="container-fluid" style="background-image: url('assets/img/img28.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Subject
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Subject
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- SUBJECT NAME -->
+                        <label><b>Subject Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-book"></i>
+                            </span>
+                            <input type="text"
+                                   class="form-control"
+                                   [(ngModel)]="form.data.name"
+                                   name="name"
+                                   placeholder="Enter Subject Name">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.name}}</span>
+                        </div>
+
+                        <!-- COURSE -->
+                        <label><b>Course *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-graduation-cap"></i>
+                            </span>
+                            <select class="form-control"
+                                    [(ngModel)]="form.data.courseId"
+                                    name="courseId">
+
+                                <option value="undefined">Select Course</option>
+
+                                <option *ngFor="let obj of form.preload.courseList"
+                                        [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.courseId}}</span>
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <label><b>Description *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-align-left"></i>
+                            </span>
+                            <textarea class="form-control"
+                                      [(ngModel)]="form.data.description"
+                                      name="description"
+                                      rows="3"
+                                      placeholder="Enter Description"></textarea>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.description}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button"
+                                    class="btn btn-success me-2"
+                                    (click)="submit()">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id"
+                                    class="btn btn-warning me-2"
+                                    (click)="forward('/subject-list')">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id"
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

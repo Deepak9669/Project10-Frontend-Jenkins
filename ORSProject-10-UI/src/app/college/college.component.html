@@ -1,0 +1,125 @@
+<div class="container-fluid" style="background-image: url('assets/img/cyber.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        {{'AddCollege' | translate}}
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        {{'CollegeForm.UpdateCollege' | translate}}
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- NAME -->
+                        <label><b>{{'College' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-university"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.name" name="name"
+                                [placeholder]="'AddCollege' | translate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.name}}</span>
+                        </div>
+                        <!-- ADDRESS -->
+                        <label><b>{{'Address' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-map-marker"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.address" name="address"
+                                [placeholder]="'Address' | translate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.address}}</span>
+                        </div>
+                        <!-- STATE -->
+                        <label><b>{{'State' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-globe"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.state" name="state"
+                                [placeholder]="'State' | translate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.state}}</span>
+                        </div>
+                        <!-- CITY -->
+                        <label><b>{{'City' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-building"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.city" name="city"
+                                [placeholder]="'City' | translate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.city}}</span>
+                        </div>
+
+
+                        <!-- PHONE -->
+                        <label><b>{{'Mobile' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-phone"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.phoneNo" name="phoneNo"
+                                maxlength="10" [placeholder]="'Mobile' | translate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.phoneNo}}</span>
+                        </div>
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? ('UserForm.Buttons.Save' | translate) : ('UserForm.Buttons.Save' |
+                                translate)}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" (click)="forward('/college-list')">
+                                {{'UserForm.Buttons.List' | translate}}
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                {{'Buttons.Reset' | translate}}
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

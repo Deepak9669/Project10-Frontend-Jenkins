@@ -1,0 +1,142 @@
+<div class="container-fluid" style="background-image: url('assets/img/pro32.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        {{'AddStudent' | translate}}
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        {{'UpdateStudent' | translate}}
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- ENROL -->
+                        <label><b>{{'EnrolNo' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.enrolNo" name="enrolNo"
+                                [placeholder]="'EnrolNo' | translate">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.enrolNo}}</span>
+                        </div>
+                        <!-- FIRST NAME -->
+                        <label><b>{{'FirstName' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.firstName" name="firstName"
+                                [placeholder]="'FirstName' | translate">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.firstName}}</span>
+                        </div>
+
+                        <!-- LAST NAME -->
+                        <label><b>{{'LastName' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.lastName" name="lastName"
+                                [placeholder]="'LastName' | translate">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.lastName}}</span>
+                        </div>
+
+                        <!-- EMAIL -->
+                        <label><b>{{'LoginId' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.email" name="email"
+                                [placeholder]="'LoginId' | translate">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.email}}</span>
+                        </div>
+
+                        <!-- DOB -->
+                        <label><b>{{'DateOfBirth' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.dob"
+                                [ngModel]="form.data.dob | date:'yyyy-MM-dd'" name="dob">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.dob}}</span>
+                        </div>
+
+                        <!-- COLLEGE -->
+                        <label><b>{{'College' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-university"></i></span>
+                            <select class="form-control" [(ngModel)]="form.data.collegeId" name="collegeId">
+                                <option value="undefined">
+                                    {{'LocaleSelect.Select' | translate}}
+                                </option>
+                                <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.collegeId}}</span>
+                        </div>
+
+                        <!-- MOBILE -->
+                        <label><b>{{'Mobile' | translate}} *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.phoneNo" name="phoneNo"
+                                maxlength="10" [placeholder]="'Mobile' | translate">
+                        </div>
+                        <div>
+                        <span class="text-danger">{{form.inputerror.phoneNo}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{'UserForm.Buttons.Save' | translate}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" (click)="forward('/studentlist')">
+                                {{'UserForm.Buttons.List' | translate}}
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                {{'Buttons.Reset' | translate}}
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

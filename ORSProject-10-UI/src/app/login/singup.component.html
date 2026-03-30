@@ -1,0 +1,141 @@
+<div class="container-fluid" style="background-image: url('assets/img/cyber.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3">
+                        User Registration
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert ">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert ">&times;</button>
+                        {{ form.message }}
+                    </div>
+
+                    <form>
+
+                        <!-- FIRST NAME -->
+                        <label><b>First Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" class="form-control" name="firstName" [(ngModel)]="form.data.firstName"
+                                placeholder="Enter First Name">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.firstName}}</span>
+                        </div>
+
+                        <!-- LAST NAME -->
+                        <label><b>Last Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" class="form-control" name="lastName" [(ngModel)]="form.data.lastName"
+                                placeholder="Enter Last Name">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.lastName}}</span>
+                        </div>
+
+                        <!-- LOGIN ID -->
+                        <label><b>Login ID *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control" name="loginId" [(ngModel)]="form.data.loginId"
+                                placeholder="Enter Login ID">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.loginId}}</span>
+                        </div>
+
+                        <!-- PASSWORD -->
+                        <label><b>Password *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="form.data.password"
+                                placeholder="Enter Password">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.password}}</span>
+                        </div>
+                        <!-- DOB -->
+                        <label><b>Date of Birth *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="date" class="form-control" name="dob" [(ngModel)]="form.data.dob" [max]="datePicker.max">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.dob}}</span>
+                        </div>
+                        <!-- GENDER -->
+                        <label><b>Gender *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-venus-mars"></i>
+                            </span>
+                            <select class="form-control" name="gender" [(ngModel)]="form.data.gender">
+                                <option value="">-- Select Gender --</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.gender}}</span>
+                        </div>
+                        <!-- MOBILE -->
+                        <label><b>Mobile *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-phone"></i>
+                            </span>
+                            <input type="text" class="form-control" name="phone" [(ngModel)]="form.data.phone"
+                                maxlength="10" placeholder="Enter Mobile No.">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.phone}}</span>
+                        </div>
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="signUp()">
+                                Sign Up
+                            </button>
+
+                            <button type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

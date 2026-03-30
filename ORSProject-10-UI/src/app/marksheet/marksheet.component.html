@@ -1,0 +1,118 @@
+<div class="container-fluid" style="background-image: url('assets/img/img28.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Marksheet
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Marksheet
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- ROLL NO -->
+                        <label><b>Roll No *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.rollNo" name="rollNo"
+                                maxlength="5" placeholder="Enter Roll No">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.rollNo}}</span>
+                        </div>
+                        <!-- STUDENT -->
+                        <label><b>Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <select class="form-control" [(ngModel)]="form.data.studentId" name="studentId">
+                                <option value="undefined">Select Student</option>
+                                <option *ngFor="let obj of form.preload.studentList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.studentId}}</span>
+                        </div>
+
+                        <!-- PHYSICS -->
+                        <label><b>Physics *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-book"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.physics" name="physics"
+                                maxlength="3" placeholder="Enter Physics Marks">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.physics}}</span>
+                        </div>
+
+                        <!-- CHEMISTRY -->
+                        <label><b>Chemistry *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-flask"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.chemistry" name="chemistry"
+                                maxlength="3" placeholder="Enter Chemistry Marks">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.chemistry}}</span>
+                        </div>
+
+                        <!-- MATHS -->
+                        <label><b>Maths *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text"><i class="fa fa-calculator"></i></span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.maths" name="maths"
+                                maxlength="3" placeholder="Enter Maths Marks">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.maths}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" (click)="forward('/marksheetlist')">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

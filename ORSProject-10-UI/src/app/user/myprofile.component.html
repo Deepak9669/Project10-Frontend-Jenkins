@@ -1,0 +1,138 @@
+<div class="container-fluid" style="background-image: url('assets/img/img28.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3">
+                        My Profile
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- FIRST NAME -->
+                        <label><b>First Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" class="form-control"
+                                [(ngModel)]="form.data.firstName"
+                                name="firstName"
+                                placeholder="Enter First Name">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.firstName}}</span>
+
+                        <!-- LAST NAME -->
+                        <label class="mt-2"><b>Last Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" class="form-control"
+                                [(ngModel)]="form.data.lastName"
+                                name="lastName"
+                                placeholder="Enter Last Name">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.lastName}}</span>
+
+                        <!-- LOGIN ID -->
+                        <label class="mt-2"><b>Login ID *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <input type="text" class="form-control"
+                                [(ngModel)]="form.data.loginId"
+                                name="loginId"
+                                readonly>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.loginId}}</span>
+
+                        <!-- DOB -->
+                        <label class="mt-2"><b>Date of Birth *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="date" class="form-control"
+                                [(ngModel)]="form.data.dob"
+                                [ngModel]="form.data.dob | date:'yyyy-MM-dd'"
+                                name="dob">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.dob}}</span>
+
+                        <!-- GENDER -->
+                        <label class="mt-2"><b>Gender *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-venus-mars"></i>
+                            </span>
+                            <select class="form-select"
+                                [(ngModel)]="form.data.gender"
+                                name="gender">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.gender}}</span>
+
+                        <!-- MOBILE -->
+                        <label class="mt-2"><b>Mobile *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-phone"></i>
+                            </span>
+                            <input type="text" class="form-control"
+                                [(ngModel)]="form.data.phone"
+                                name="phone"
+                                maxlength="10"
+                                placeholder="Enter Mobile No.">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.phone}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="d-flex gap-2 mt-3">
+
+                            <button type="button"
+                                class="btn btn-success w-100"
+                                (click)="myProfile()">
+                                Save
+                            </button>
+
+                            <button type="button"
+                                class="btn btn-secondary w-100"
+                                (click)="forward('/userlist')">
+                                List
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

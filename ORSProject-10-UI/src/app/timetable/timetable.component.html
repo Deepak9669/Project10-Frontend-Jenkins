@@ -1,0 +1,155 @@
+<div class="container-fluid" style="background-image: url('assets/img/img23.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Timetable
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Timetable
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- COURSE -->
+                        <label><b>Course *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-graduation-cap"></i>
+                            </span>
+                            <select class="form-control" [(ngModel)]="form.data.courseId" name="courseId">
+                                <option value="undefined">Select Course</option>
+                                <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.courseId}}</span>
+                        </div>
+
+                        <!-- SUBJECT -->
+                        <label><b>Subject *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-book"></i>
+                            </span>
+                            <select class="form-control" [(ngModel)]="form.data.subjectId" name="subjectId">
+                                <option value="undefined">Select Subject</option>
+                                <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">
+                                    {{obj.value}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.subjectId}}</span>
+                        </div>
+
+                        <!-- SEMESTER -->
+                        <label><b>Semester *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-layer-group"></i>
+                            </span>
+                            <select class="form-control" [(ngModel)]="form.data.semester" name="semester">
+                                <option value="undefined">Select Semester</option>
+                                <option *ngFor="let s of [1,2,3,4,5,6,7,8]" [value]="s">
+                                    {{s}}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.semester}}</span>
+                        </div>
+
+                        <!-- EXAM DATE -->
+                        <label><b>Exam Date *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.examDate"
+                                [ngModel]="form.data.examDate | date:'yyyy-MM-dd'" name="examDate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.examDate}}</span>
+                        </div>
+
+                        <!-- EXAM TIME -->
+                        <label><b>Exam Time *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-clock"></i>
+                            </span>
+                            <select class="form-control" [(ngModel)]="form.data.examTime" name="examTime">
+                                <option value="undefined">Select Time</option>
+                                <option value="08:00 AM to 11:00 AM">08:00 AM to 11:00 AM</option>
+                                <option value="12:00 PM to 03:00 PM">12:00 PM to 03:00 PM</option>
+                                <option value="04:00 PM to 07:00 PM">04:00 PM to 07:00 PM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.examTime}}</span>
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <label><b>Description *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-align-left"></i>
+                            </span>
+                            <textarea class="form-control" [(ngModel)]="form.data.description" name="description"
+                                rows="3" placeholder="Enter Description"></textarea>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.description}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning me-2"
+                                (click)="forward('/timetable-list')">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-secondary" (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
