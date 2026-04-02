@@ -1,6 +1,5 @@
 FROM nginx:alpine
 
-# Correct Angular build folder
 COPY dist/orsproject-10-ui/ /usr/share/nginx/html
 
 EXPOSE 80
