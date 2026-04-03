@@ -1,15 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpServiceService {
 
-  constructor(private httpClient: HttpClient, private router: Router) {
-
-  }
+  constructor(private httpClient: HttpClient) {}
 
   post(endpoint: any, bean: any, callback: any) {
     return this.httpClient.post(endpoint, bean).subscribe((data) => {
@@ -23,20 +20,28 @@ export class HttpServiceService {
     });
   }
 
- getReport(url: string, token: string) {
-  this.httpClient.get(url, {
-    headers: {
+  // ✅ FINAL FIXED PDF METHOD
+  getReport(url: string, token: string) {
+
+    const headers = new HttpHeaders({
       Authorization: 'Bearer ' + token
-    },
-    responseType: 'blob' // important for PDF
-  })
-  .subscribe((res: any) => {
+    });
 
-    const file = new Blob([res], { type: 'application/pdf' });
-    const fileURL = URL.createObjectURL(file);
+    this.httpClient.get(url, {
+      headers: headers,
+      responseType: 'blob' // VERY IMPORTANT
+    })
+    .subscribe({
+      next: (res: Blob) => {
 
-    window.open(fileURL); // opens PDF in new tab
-  });
-}
+        // ✅ Direct blob use karo (NO double blob)
+        const fileURL = URL.createObjectURL(res);
 
+        window.open(fileURL);
+      },
+      error: (err) => {
+        console.error("❌ PDF Error:", err);
+      }
+    });
+  }
 }
