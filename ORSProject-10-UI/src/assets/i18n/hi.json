@@ -1,4 +1,11 @@
 {
+    "InternetPackage": "इंटरनेट पैकेज",
+    "AddInternetPackage": "इंटरनेट पैकेज जोड़ें",
+    "InternetPackageList": "इंटरनेट पैकेज सूची",
+    "Decoration": "सजावट",
+    "Appointment": "नियुक्ति",
+    "AddAppointment": "नियुक्ति जोड़ें",
+    "AppointmentList": "नियुक्ति सूची",
     "User": "उपयोगकर्ता",
     "Role": "भूमिका",
     "College": "कॉलेज",

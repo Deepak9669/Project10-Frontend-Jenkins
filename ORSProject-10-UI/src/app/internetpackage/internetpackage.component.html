@@ -1,0 +1,79 @@
+<div class="container-fluid" style="background-image: url('assets/img/index1.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Internet Package
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Internet Package
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- PACKAGE NAME -->
+                        <label><b>Package Name *</b></label>
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.packageName"
+                            name="packageName" placeholder="Enter Package Name">
+                        <span class="text-danger">{{form.inputerror.packageName}}</span>
+
+                        <!-- PRICE -->
+                        <label><b>Price *</b></label>
+                        <input type="number" class="form-control mb-2" [(ngModel)]="form.data.price" name="price"
+                            placeholder="Enter Price">
+                        <span class="text-danger">{{form.inputerror.price}}</span>
+
+                        <!-- DATA LIMIT -->
+                        <label><b>Data Limit (GB) *</b></label>
+                        <input type="number" class="form-control mb-2" [(ngModel)]="form.data.dataLimit"
+                            name="dataLimit" placeholder="Enter Data Limit">
+                        <span class="text-danger">{{form.inputerror.dataLimit}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button class="btn btn-success me-2" (click)="submit()">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning me-2"
+                                (click)="forward('internetpackagelist')">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id" class="btn btn-secondary" (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

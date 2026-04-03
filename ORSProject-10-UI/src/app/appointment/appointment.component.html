@@ -1,0 +1,105 @@
+<div class="container-fluid" style="background-image: url('assets/img/lamp.jpg');
+           background-size: cover;
+           background-attachment: fixed;
+           min-height: 100vh;
+           padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Appointment
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Appointment
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- PATIENT NAME -->
+                        <label><b>Patient Name *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.patientName"
+                                name="patientName" placeholder="Enter Patient Name">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.patientName}}</span>
+                        </div>
+
+                        <!-- APPOINTMENT DATE -->
+                        <label><b>Appointment Date *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.appointmentDate"
+                                name="appointmentDate">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.appointmentDate}}</span>
+                        </div>
+
+                        <!-- STATUS -->
+                        <label><b>Status *</b></label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="fa fa-info-circle"></i>
+                            </span>
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+                                <option value="undefined">-- Select Status --</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Completed">Completed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.status}}</span>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                Save
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning me-2"
+                                (click)="forward('/appointmentlist')">
+                                List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-secondary" (click)="reset()">
+                                Reset
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

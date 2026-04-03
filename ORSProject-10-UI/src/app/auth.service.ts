@@ -22,7 +22,7 @@ export class AuthService implements HttpInterceptor {
 
     const token = localStorage.getItem('token');
 
-    // ✅ Agar token hai
+    
     if (token) {
 
       if (req.body instanceof FormData) {
@@ -42,7 +42,6 @@ export class AuthService implements HttpInterceptor {
 
         console.log("❌ Error:", error);
 
-        // 🔐 Unauthorized
         if (error.status === 401) {
           localStorage.clear();
           this.router.navigate(['/login'], {
@@ -50,7 +49,6 @@ export class AuthService implements HttpInterceptor {
           });
         }
 
-        // 🔐 Forbidden / Token expired
         if (error.status === 403) {
           localStorage.clear();
           this.router.navigate(['/login'], {

@@ -41,6 +41,14 @@ import { AuthService } from './auth.service';
 import { DatePipe } from '@angular/common';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
+import { DecorationComponent } from './decoration/decoration.component';
+import { DecorationlistComponent } from './decoration/decorationlist.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentlistComponent } from './appointment/appointmentlist.component';
+import { InternetpackageComponent } from './internetpackage/internetpackage.component';
+import { InternetpacckagelistComponent } from './internetpackage/internetpacckagelist.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientlistComponent } from './patient/patientlist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -77,7 +85,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     MyprofileComponent,
     ChangepasswordComponent,
     MarksheetmeritlistComponent,
-    GetmarksheetComponent
+    GetmarksheetComponent,
+    DecorationComponent,
+    DecorationlistComponent,
+    AppointmentComponent,
+    AppointmentlistComponent,
+    InternetpackageComponent,
+    InternetpacckagelistComponent,
+    PatientComponent,
+    PatientlistComponent
 
   ],
   imports: [

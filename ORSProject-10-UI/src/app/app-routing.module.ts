@@ -26,6 +26,14 @@ import { MyprofileComponent } from './user/myprofile.component';
 import { ChangepasswordComponent } from './user/changepassword.component';
 import { GetmarksheetComponent } from './marksheet/getmarksheet.component';
 import { MarksheetmeritlistComponent } from './marksheet/marksheetmeritlist.component';
+import { DecorationlistComponent } from './decoration/decorationlist.component';
+import { DecorationComponent } from './decoration/decoration.component';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { AppointmentlistComponent } from './appointment/appointmentlist.component';
+import { InternetpackageComponent } from './internetpackage/internetpackage.component';
+import { InternetpacckagelistComponent } from './internetpackage/internetpacckagelist.component';
+import { PatientComponent } from './patient/patient.component';
+import { PatientlistComponent } from './patient/patientlist.component';
 
 
 const routes: Routes = [
@@ -181,7 +189,7 @@ const routes: Routes = [
     component: MarksheetmeritlistComponent
   },
   {
-    path:'getmarksheet',
+    path: 'getmarksheet',
     component: GetmarksheetComponent
   },
 
@@ -219,6 +227,74 @@ const routes: Routes = [
     path: 'facultylist',
     component: FacultyListComponent
   },
+
+  {
+    path: 'decoration',
+    component: DecorationComponent
+  },
+  {
+    path: 'decorationlist',
+    component: DecorationlistComponent
+  },
+
+  {
+    path: 'decoration/:id',
+    component: DecorationComponent
+  },
+
+  {
+    path: 'decoration',
+    component: DecorationComponent
+  },
+  {
+    path: 'decorationlist',
+    component: DecorationlistComponent
+  },
+
+  {
+    path: 'decoration/:id',
+    component: DecorationComponent
+  },
+
+  {
+    path: 'appointment',
+    component: AppointmentComponent
+  },
+  {
+    path: 'appointmentlist',
+    component: AppointmentlistComponent
+  },
+
+  {
+    path: 'appointment/:id',
+    component: AppointmentComponent
+  },
+  {
+    path: 'internetpackage',
+    component: InternetpackageComponent
+  },
+  {
+    path: 'internetpackagelist',
+    component: InternetpacckagelistComponent
+  },
+  {
+    path: 'internetpackage/:id',
+    component: InternetpackageComponent
+  },
+
+  {
+    path: 'patient',
+    component: PatientComponent
+  },
+  {
+    path: 'patientlist',
+    component: PatientlistComponent
+  },
+  {
+    path: 'patient/:id',
+    component: PatientComponent
+  }
+
 
 ];
 

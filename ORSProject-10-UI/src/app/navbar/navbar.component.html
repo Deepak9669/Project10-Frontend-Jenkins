@@ -217,6 +217,65 @@
                 </div>
             </li>
 
+            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'Decoration' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/decoration']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddDecoration' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/decorationlist']"> <i
+                            class="fa fa-list"></i> &nbsp; {{'DecorationList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'Appointment' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/appointment']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddAppointment' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/appointmentlist']"> <i
+                            class="fa fa-list"></i> &nbsp; {{'AppointmentList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            
+             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'internetpackage' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/internetpackage']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddInternetPackage' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/internetpackagelist']"> <i
+                            class="fa fa-list"></i> &nbsp; {{'InternetPackageList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'Patient' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/patient']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddPatient' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/patientlist']"> <i
+                            class="fa fa-list"></i> &nbsp; {{'PatientList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+
+
             <li class="nav-item dropdown" style="padding-left: 5px">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">
                     <img *ngIf="isLogin()" [src]="'http://localhost:8081/User/profilePic/' + form.data.userId"
