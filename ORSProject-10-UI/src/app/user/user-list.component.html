@@ -7,7 +7,7 @@
 
     <!-- TITLE -->
     <h2 class="text-center text-primary mb-3">
-        {{'User List' | translate}}
+        {{'UserList' | translate}}
     </h2>
 
     <!-- ALERT -->
@@ -42,14 +42,14 @@
 
                 <td>
                     <button (click)="search()" class="btn btn-primary w-100">
-                        Search
+                        {{'Search' | translate}}
                     </button>
                 </td>
 
                 <!-- ✅ RESET BUTTON -->
                 <td>
                     <button (click)="reset()" class="btn btn-secondary w-100">
-                        Reset
+                        {{'Reset' | translate}}
                     </button>
                 </td>
 
@@ -59,23 +59,23 @@
 
     <!-- TABLE -->
     <div class="table-responsive mt-3">
-        <table class="table table-bordered table-hover text-center bg-white">
+        <table class="table table-bordered table-hover table-dark text-center bg-white">
 
             <thead class="thead-dark">
                 <tr>
                     <th>
                         <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
                     </th>
-                    <th>S.NO</th>
-                    <th>Image</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Status</th>
-                    <th>Role</th>
-                    <th>Phone</th>
-                    <th>DOB</th>
-                    <th>Edit</th>
+                    <th>{{'S.NO' | translate}}</th>
+                    <th>{{'Image' | translate}}</th>
+                    <th>{{'FirstName' | translate}}</th>
+                    <th>{{'LastName' | translate}}</th>
+                    <th>{{'Email' | translate}}</th>
+                    <th>{{'Status' | translate}}</th>
+                    <th>{{'Role' | translate}}</th>
+                    <th>{{'Phone' | translate}}</th>
+                    <th>{{'DateOfBirth' | translate}}</th>
+                    <th>{{'Edit' | translate}}</th>
                 </tr>
             </thead>
 
@@ -118,22 +118,22 @@
     <!-- ACTIONS + PAGINATION -->
     <div class="d-flex justify-content-between align-items-center mt-3">
 
-        <button class="btn btn-info" (click)="previous()" [disabled]="form.pageNo == 0">
-            Previous
+        <button class="btn btn-warning" (click)="previous()" [disabled]="form.pageNo == 0">
+            {{'Previous' | translate}}
         </button>
 
         <div>
             <button (click)="forward('/user')" class="btn btn-success me-2">
-                Add User
+                {{'New' | translate}}
             </button>
 
             <button (click)="deleteMany()" class="btn btn-danger">
-                Delete
+                {{'Delete' | translate}}
             </button>
         </div>
 
-        <button class="btn btn-info" (click)="next()" [disabled]="form.nextListSize == 0">
-            Next
+        <button class="btn btn-warning" (click)="next()" [disabled]="form.nextListSize == 0">
+            {{'Next' | translate}}
         </button>
 
     </div>

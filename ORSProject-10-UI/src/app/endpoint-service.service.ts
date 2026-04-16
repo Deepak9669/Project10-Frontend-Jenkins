@@ -27,6 +27,16 @@ export class EndpointServiceService {
   public APPOINTMENT = this.SERVER_URL+ "/Appointment";
   public INTERNET_PACKAGE = this.SERVER_URL+ "/InternetPackage";
   public PATIENT = this.SERVER_URL+ "/Patient";
+  public REFUND = this.SERVER_URL+ "/Refund";
+  public CONTRACT = this.SERVER_URL+ "/Contract";
+  public TAX = this.SERVER_URL+ "/Tax";
+  public SUBSCRIPTION = this.SERVER_URL+ "/Subscription";
+  public REPORT = this.SERVER_URL+ "/Report";
+  public SUPPLIER = this.SERVER_URL+ "/Supplier"; 
+  public SYSTEM_CONFIG = this.SERVER_URL+ "/SystemConfig";
+  public INVESTOR = this.SERVER_URL+ "/Investor";
+  public RELEASE = this.SERVER_URL+ "/Release";
+  public SECRET = this.SERVER_URL+ "/Secret";
   public JASPERREPORT = this.SERVER_URL+ "/Jasper";
  
 }

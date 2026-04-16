@@ -14,48 +14,47 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class AuthService implements HttpInterceptor {
 
+ token: any
+
   constructor(private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    console.log('🔐 Interceptor running...');
 
-    const token = localStorage.getItem('token');
-
-    
-    if (token) {
-
-      if (req.body instanceof FormData) {
-        return next.handle(req);
-      }
-
+    if (localStorage.getItem('fname') && localStorage.getItem('token')) {
+      this.token = localStorage.getItem('token')
       req = req.clone({
         setHeaders: {
-          Authorization: token
+          "withCredentials": "true",
+          "name": "Deepak",
+          Authorization: this.token
         }
-      });
+      })
     }
-
     return next.handle(req).pipe(
-
       catchError((error: HttpErrorResponse) => {
 
-        console.log("❌ Error:", error);
+        if (error.status === 503) {
+          const message = error.error?.result?.message;
+          this.router.navigate([this.router.url], {
+            queryParams: { errorMessage: message },
+          });
+        }
+
 
         if (error.status === 401) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: error.error }
+            queryParams: { errorMessage: error.error },
           });
         }
 
         if (error.status === 403) {
           localStorage.clear();
           this.router.navigate(['/login'], {
-            queryParams: { errorMessage: 'Token expired... login again' }
+            queryParams: { errorMessage: 'Token is expired... plz login again..!!' },
           });
         }
-
         return throwError(error);
       })
     );

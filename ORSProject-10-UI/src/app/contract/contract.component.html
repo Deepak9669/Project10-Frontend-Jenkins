@@ -1,0 +1,95 @@
+<div class="container-fluid" style="background-image: url('assets/img/email.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Contract
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Contract
+                    </h3>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- CONTRACT NAME -->
+                        <label><b>Contract Name *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-file-text"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.contractName"
+                                name="contractName" placeholder="Enter Contract Name">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.contractName}}</span>
+
+                        <!-- START DATE -->
+                        <label><b>Start Date *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.startDate" name="startDate">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.startDate}}</span>
+
+                        <!-- END DATE -->
+                        <label><b>End Date *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.endDate" name="endDate">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.endDate}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/contractlist']">
+                                Contract List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

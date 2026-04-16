@@ -34,6 +34,26 @@ import { InternetpackageComponent } from './internetpackage/internetpackage.comp
 import { InternetpacckagelistComponent } from './internetpackage/internetpacckagelist.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientlistComponent } from './patient/patientlist.component';
+import { RefundComponent } from './refund/refund.component';
+import { RefundListComponent } from './refund/refundlist.component';
+import { ContractComponent } from './contract/contract.component';
+import { ContractListComponent } from './contract/contract-list.component';
+import { TaxComponent } from './tax/tax.component';
+import { TaxListComponent } from './tax/tax-list.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { SubscriptionListComponent } from './subscription/subscription-list.component';
+import { ReportComponent } from './report/report.component';
+import { ReportListComponent } from './report/report-list.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierListComponent } from './supplier/supplier-list.component';
+import { SystemconfigComponent } from './systemconfig/systemconfig.component';
+import { SystemconfiglistComponent } from './systemconfig/systemconfiglist.component';
+import { InvestorComponent } from './investor/investor.component';
+import { InvestorlistComponent } from './investor/investorlist.component';
+import { ReleaseComponent } from './release/release.component';
+import { ReleaselistComponent } from './release/releaselist.component';
+import { SecretComponent } from './secret/secret.component';
+import { SecretlistComponent } from './secret/secretlist.component';
 
 
 const routes: Routes = [
@@ -293,6 +313,135 @@ const routes: Routes = [
   {
     path: 'patient/:id',
     component: PatientComponent
+  },
+
+  {
+    path: 'refund',
+    component: RefundComponent
+  },
+  {
+    path: 'refundlist',
+    component: RefundListComponent
+  },
+  {
+    path: 'refund/:id',
+    component: RefundComponent
+  },
+
+  {
+    path: 'contract',
+    component: ContractComponent
+  },
+  {
+    path: 'contractlist',
+    component: ContractListComponent
+  },
+  {
+    path: 'contract/:id',
+    component: ContractComponent
+  },
+  {
+    path: 'tax',
+    component: TaxComponent
+  },
+  {
+    path: 'taxlist',
+    component: TaxListComponent
+  },
+  {
+    path: 'tax/:id',
+    component: TaxComponent
+  },
+
+  {
+    path: 'subscription',
+    component: SubscriptionComponent
+  },
+  {
+    path: 'subscriptionlist',
+    component: SubscriptionListComponent
+  },
+  {
+    path: 'subscription/:id',
+    component: SubscriptionComponent
+  },
+
+  {
+    path: 'report',
+    component: ReportComponent
+  },
+  {
+    path: 'reportlist',
+    component: ReportListComponent
+  },
+  {
+    path: 'report/:id',
+    component: ReportComponent
+  },
+
+  {
+    path: 'supplier',
+    component: SupplierComponent
+  },
+  {
+    path: 'supplierlist',
+    component: SupplierListComponent
+  },
+  {
+    path: 'supplier/:id',
+    component: SupplierComponent
+  },
+
+  {
+    path: 'systemconfig',
+    component: SystemconfigComponent
+  },
+  {
+    path: 'systemconfiglist',
+    component: SystemconfiglistComponent
+  },
+  {
+    path: 'systemconfig/:id',
+    component: SystemconfigComponent
+  },
+
+  {
+    path: 'investor',
+    component: InvestorComponent
+  },
+  {
+    path: 'investorlist',
+    component: InvestorlistComponent
+  },
+  {
+    path: 'investor/:id',
+    component: InvestorComponent
+  },
+
+  {
+    path: 'releaselist',
+    component: ReleaselistComponent
+  },
+  {
+    path: 'release/:id',
+    component: ReleaseComponent
+  },
+  {
+    path: 'release',
+    component: ReleaseComponent
+  },
+
+  {
+    path: 'secret',
+    component: SecretComponent
+  },
+  {
+    path: 'secretlist',
+    component: SecretlistComponent
+  },
+  {
+    path: 'secret/:id',
+    component: SecretComponent
   }
 
 

@@ -49,6 +49,26 @@ import { InternetpackageComponent } from './internetpackage/internetpackage.comp
 import { InternetpacckagelistComponent } from './internetpackage/internetpacckagelist.component';
 import { PatientComponent } from './patient/patient.component';
 import { PatientlistComponent } from './patient/patientlist.component';
+import { RefundComponent } from './refund/refund.component';
+import { RefundListComponent } from './refund/refundlist.component';
+import { ContractComponent } from './contract/contract.component';
+import { ContractListComponent } from './contract/contract-list.component';
+import { TaxComponent } from './tax/tax.component';
+import { TaxListComponent } from './tax/tax-list.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
+import { SubscriptionListComponent } from './subscription/subscription-list.component';
+import { ReportComponent } from './report/report.component';
+import { ReportListComponent } from './report/report-list.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierListComponent } from './supplier/supplier-list.component';
+import { SystemconfigComponent } from './systemconfig/systemconfig.component';
+import { SystemconfiglistComponent } from './systemconfig/systemconfiglist.component';
+import { InvestorComponent } from './investor/investor.component';
+import { InvestorlistComponent } from './investor/investorlist.component';
+import { ReleaseComponent } from './release/release.component';
+import { ReleaselistComponent } from './release/releaselist.component';
+import { SecretComponent } from './secret/secret.component';
+import { SecretlistComponent } from './secret/secretlist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -93,7 +113,27 @@ export function HttpLoaderFactory(http: HttpClient) {
     InternetpackageComponent,
     InternetpacckagelistComponent,
     PatientComponent,
-    PatientlistComponent
+    PatientlistComponent,
+    RefundComponent,
+    RefundListComponent,
+    ContractComponent,
+    ContractListComponent,
+    TaxComponent,
+    TaxListComponent,
+    SubscriptionComponent,
+    SubscriptionListComponent,
+    ReportComponent,
+    ReportListComponent,
+    SupplierComponent,
+    SupplierListComponent,
+    SystemconfigComponent,
+    SystemconfiglistComponent,
+    InvestorComponent,
+    InvestorlistComponent,
+    ReleaseComponent,
+    ReleaselistComponent,
+    SecretComponent,
+    SecretlistComponent
 
   ],
   imports: [

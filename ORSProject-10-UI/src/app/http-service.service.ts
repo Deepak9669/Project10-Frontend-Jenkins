@@ -7,23 +7,27 @@ import { Router } from '@angular/router';
 })
 export class HttpServiceService {
 
-  constructor(private httpClient: HttpClient, private router: Router) {
-
-  }
+    constructor(private httpClient: HttpClient, private router: Router,) {}
 
   post(endpoint: any, bean: any, callback: any) {
     return this.httpClient.post(endpoint, bean).subscribe((data) => {
       callback(data);
-    });
+    } ,(error) => {
+        this.handleError(error, callback);
+      }
+    );
   }
 
   get(endpoint: any, callback: any) {
     return this.httpClient.get(endpoint).subscribe((data) => {
       callback(data);
-    });
+    }, (error) => {
+        this.handleError(error, callback);
+      }
+    );
   }
 
- getReport(url: string, token: string) {
+getReport(url: string, token: string) {
   this.httpClient.get(url, {
     headers: {
       Authorization: 'Bearer ' + token
@@ -39,4 +43,20 @@ export class HttpServiceService {
   });
 }
 
+ private handleError(error: any, callback: any) {
+
+  if (error.status === 401) {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
+    if (error.status === 503) {
+      callback({
+        success: false,
+        result: {
+          message: error.error?.result?.message
+        }
+      })
+    }
+  }
 }

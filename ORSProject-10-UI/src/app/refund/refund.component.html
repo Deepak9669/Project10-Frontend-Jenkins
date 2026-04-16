@@ -1,0 +1,114 @@
+<div class="container-fluid" style="background-image: url('assets/img/email.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 70px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Refund
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Refund
+                    </h3>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- REFUND CODE -->
+                        <label><b>Refund Code *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-code"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control" [(ngModel)]="form.data.refundCode" name="refundCode"
+                                placeholder="Enter Refund Code">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.refundCode}}</span>
+
+                        <!-- AMOUNT -->
+                        <label><b>Amount *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-money"></i>
+                                </span>
+                            </div>
+                            <input type="number" class="form-control" [(ngModel)]="form.data.amount" name="amount"
+                                placeholder="Enter Amount">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.amount}}</span>
+
+                        <!-- REFUND DATE -->
+                        <label><b>Refund Date *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                            <input type="date" class="form-control" [(ngModel)]="form.data.refundDate"
+                                name="refundDate">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.refundDate}}</span>
+
+                        <!-- STATUS -->
+                        <label><b>Status *</b></label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-toggle-on"></i>
+                                </span>
+                            </div>
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+                                <option value="undefined">Select Status</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/refundlist']">
+                                Refund List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

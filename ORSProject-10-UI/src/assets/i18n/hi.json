@@ -1,8 +1,19 @@
 {
+    "Next": "अगला",
+    "Previous": "पिछला",
+    "New": "नया",
+    "Delete": "हटाएं",
+    "Search": "खोजें",
+    "Reset": "रीसेट",
     "InternetPackage": "इंटरनेट पैकेज",
     "AddInternetPackage": "इंटरनेट पैकेज जोड़ें",
     "InternetPackageList": "इंटरनेट पैकेज सूची",
     "Decoration": "सजावट",
+    "Patient": "रोगी",
+    "AddPatient": "रोगी जोड़ें",
+    "PatientList": "रोगी सूची",
+    "Refund": "रिफंड",
+    "RefundList": "रिफंड सूची",
     "Appointment": "नियुक्ति",
     "AddAppointment": "नियुक्ति जोड़ें",
     "AppointmentList": "नियुक्ति सूची",
@@ -49,17 +60,17 @@
     "DateOfBirth": "जन्म तिथि",
     "Gender": "लिंग",
     "Mobile": "मोबाइल",
+    "Phone": "फोन",
     "Email": "ईमेल",
+    "Image": "छवि",
+    "S.NO": "क्रमांक",
     "Buttons": {
         "SignUp": "साइन अप",
         "SignIn": "साइन इन",
         "Reset": "रीसेट",
-        "Search": "खोजें",
         "New": "नया",
-        "Delete": "हटाएं",
-        "Next": "अगला",
-        "Previous": "पिछला",
-        "Save": "सहेजें"
+        "Save": "सहेजें",
+        "Update": "अपडेट करें"
     },
     "GenderOptions": {
         "Select": "------------चुनें------------",
@@ -103,6 +114,7 @@
     "UserForm": {
         "AddUser": "उपयोगकर्ता जोड़ें",
         "UpdateUser": "उपयोगकर्ता अपडेट करें",
+        "DeleteUser": "उपयोगकर्ता हटाएं",
         "FirstName": "पहला नाम",
         "LastName": "अंतिम नाम",
         "LoginId": "लॉगिन आईडी",
@@ -132,7 +144,8 @@
         "Buttons": {
             "Save": "सहेजें",
             "List": "सूची",
-            "Search": "खोजें"
+            "New": "नया",
+            "AddUser": "उपयोगकर्ता जोड़ें"
         }
     }
 }

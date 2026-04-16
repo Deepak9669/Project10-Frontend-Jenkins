@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html'
+  
 })
 export class PatientComponent extends BaseCtl{
 

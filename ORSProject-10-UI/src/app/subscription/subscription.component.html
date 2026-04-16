@@ -1,0 +1,105 @@
+<div class="container-fluid" style="background-image: url('assets/img/email.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 25px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add Subscription
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update Subscription
+                    </h3>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- USER ID -->
+                        <label><b>User ID *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="number" class="form-control" [(ngModel)]="form.data.userId" name="userId"
+                                placeholder="Enter User ID">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.userId}}</span>
+
+                        <!-- SUBSCRIPTION NAME -->
+                        <label><b>Subscription Name *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.subscriptionName"
+                                name="subscriptionName" placeholder="Enter Subscription Name">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.subscriptionName}}</span>
+
+                        <!-- SUBSCRIPTION TYPE -->
+                        <label><b>Subscription Type *</b></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control" [(ngModel)]="form.data.subscriptionType"
+                                name="subscriptionType">
+                                <option value="undefined">Select Type</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.subscriptionType}}</span>
+
+                        <!-- RENEWAL DATE -->
+                        <label><b>Renewal Date *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="date" class="form-control" [(ngModel)]="form.data.renewalDate"
+                                name="renewalDate">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.renewalDate}}</span>
+
+                        <!-- STATUS -->
+                        <label><b>Status *</b></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+                                <option value="undefined">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/subscriptionlist']">
+                                Subscription List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

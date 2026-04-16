@@ -1,0 +1,103 @@
+<div class="container-fluid" style="background-image: url('assets/img/email.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 25px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add System Config
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update System Config
+                    </h3>
+
+                    <!-- SUCCESS MESSAGE -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR MESSAGE -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- CONFIG ID -->
+                        <label><b>Config ID *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="number" class="form-control" [(ngModel)]="form.data.configId" name="configId"
+                                placeholder="Enter Config ID">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.configId}}</span>
+
+                        <!-- CONFIG CODE -->
+                        <label><b>Config Code *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.configCode" name="configCode"
+                                placeholder="Enter Config Code">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.configCode}}</span>
+
+                        <!-- KEY NAME -->
+                        <label><b>Key Name *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.keyName" name="keyName"
+                                placeholder="Enter Key Name">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.keyName}}</span>
+
+                        <!-- VALUE -->
+                        <label><b>Value *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.value" name="value"
+                                placeholder="Enter Value">
+                        </div>
+                        <span class="text-danger">{{form.inputerror.value}}</span>
+
+                        <!-- STATUS -->
+                        <label><b>Status *</b></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+
+                                <option [ngValue]="null">Select Status</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+
+                            </select>
+                        </div>
+                        <span class="text-danger">{{form.inputerror.status}}</span>
+
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/systemconfiglist']">
+                                System Config List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

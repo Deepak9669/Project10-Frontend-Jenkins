@@ -1,0 +1,135 @@
+<div class="container-fluid mt-3" style="background-image: url('assets/img/books1.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 100vh;
+     padding: 20px;
+     padding-bottom: 75px;">
+
+    <!-- TITLE -->
+    <h2 class="text-center text-primary mb-3">
+        Release List
+    </h2>
+
+    <!-- ALERT -->
+    <div *ngIf="form.error" class="alert alert-danger text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+    </div>
+
+    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{form.message}}
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div align="center">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" class="form-control" [(ngModel)]="form.searchParams.releaseCode"
+                        placeholder="Search Release Code">
+                </td>
+
+                <td>
+                    <input type="text" class="form-control" [(ngModel)]="form.searchParams.version"
+                        placeholder="Search Version">
+                </td>
+
+                <td>
+                    <button (click)="search()" class="btn btn-primary w-100">
+                        Search
+                    </button>
+                </td>
+
+                <td>
+                    <button (click)="reset()" class="btn btn-secondary w-100">
+                        Reset
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-responsive mt-3">
+        <table class="table table-bordered table-hover table-dark text-center bg-white">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
+                    </th>
+                    <th>S.NO</th>
+                    <th>Release ID</th>
+                    <th>Release Code</th>
+                    <th>Version</th>
+                    <th>Release Date</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let m of form.list; let i = index">
+
+                    <td>
+                        <input #checkboxes type="checkbox" (change)="checklistUpdate()" [id]="m.id" [value]="m.id">
+                    </td>
+
+                    <td>{{(form.pageNo*5)+i+1}}</td>
+
+                    <!-- Release ID -->
+                    <td>{{m.releaseId || m.id}}</td>
+
+                    <td>{{m.releaseCode}}</td>
+
+                    <td>{{m.version}}</td>
+
+                    <td>{{m.releaseDate | date:'dd-MM-yyyy'}}</td>
+
+                    <td>
+                        <span class="badge" [ngClass]="{
+                                'bg-success': m.status === 'Active',
+                                'bg-danger': m.status === 'Inactive',
+                                'bg-warning': m.status === 'Deprecated'
+                            }">
+                            {{m.status}}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="btn btn-sm btn-primary" (click)="forward('/release/' + m.id)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <!-- ACTIONS + PAGINATION -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+
+        <button class="btn btn-info" (click)="previous()" [disabled]="form.pageNo == 0">
+            Previous
+        </button>
+
+        <div>
+            <button (click)="forward('/release')" class="btn btn-success me-2">
+                Add Release
+            </button>
+
+            <button (click)="deleteMany()" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+
+        <button class="btn btn-info" (click)="next()" [disabled]="form.nextListSize == 0">
+            Next
+        </button>
+
+    </div>
+
+</div>

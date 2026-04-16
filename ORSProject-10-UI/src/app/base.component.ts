@@ -48,19 +48,21 @@ export class BaseCtl implements OnInit {
             _self.form.data.id = params["id"];
         })
     }
+    databaseDown: string | null = null
 
     ngOnInit(): void {
+        this.databaseDown = localStorage.getItem("DatabaseDown");
         this.preload();
         if (this.form.data.id && this.form.data.id > 0) {
             this.display();
         }
 
-     let today = new Date();
-     let maxYear = today.getFullYear() - 18;
+        let today = new Date();
+        let maxYear = today.getFullYear() - 18;
 
-     this.datePicker = {
-        max: new Date(maxYear, 11, 31).toISOString().split("T")[0],
-     };
+        this.datePicker = {
+            max: new Date(maxYear, 11, 31).toISOString().split("T")[0],
+        };
 
     }
 
@@ -101,22 +103,18 @@ export class BaseCtl implements OnInit {
 
             if (res.success) {
 
-                // ✅ success message
                 _self.form.message = res.result.message;
 
-                // ✅ ID set (IMPORTANT)
                 _self.form.data.id = res.result.data;
 
                 console.log("Saved Successfully, ID:", _self.form.data.id);
 
-                // ✅ callback call (for image upload etc.)
                 if (callback) {
                     callback(_self.form.data.id);
                 }
 
             } else {
 
-                // ❌ validation error
                 _self.form.error = true;
 
                 if (res.result.inputerror) {
@@ -170,6 +168,7 @@ export class BaseCtl implements OnInit {
     }
 
     reset() {
+         this.form.data = {};
         location.reload();
     }
 }
