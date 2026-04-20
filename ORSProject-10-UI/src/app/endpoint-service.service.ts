@@ -37,6 +37,8 @@ export class EndpointServiceService {
   public INVESTOR = this.SERVER_URL+ "/Investor";
   public RELEASE = this.SERVER_URL+ "/Release";
   public SECRET = this.SERVER_URL+ "/Secret";
+  public USAGE = this.SERVER_URL+ "/Usage";
+  public API = this.SERVER_URL+ "/Api";
   public JASPERREPORT = this.SERVER_URL+ "/Jasper";
  
 }

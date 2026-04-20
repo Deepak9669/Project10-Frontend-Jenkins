@@ -69,6 +69,10 @@ import { ReleaseComponent } from './release/release.component';
 import { ReleaselistComponent } from './release/releaselist.component';
 import { SecretComponent } from './secret/secret.component';
 import { SecretlistComponent } from './secret/secretlist.component';
+import { UsageComponent } from './usage/usage.component';
+import { UsagelistComponent } from './usage/usagelist.component';
+import { ApiComponent } from './api/api.component';
+import { ApilistComponent } from './api/apilist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -133,7 +137,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReleaseComponent,
     ReleaselistComponent,
     SecretComponent,
-    SecretlistComponent
+    SecretlistComponent,
+    UsageComponent,
+    UsagelistComponent,
+    ApiComponent,
+    ApilistComponent
 
   ],
   imports: [

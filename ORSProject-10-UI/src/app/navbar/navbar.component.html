@@ -386,6 +386,20 @@
                 </div>
             </li>
 
+             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'Usage' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/usage']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddUsage' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/usagelist']"> <i class="fa fa-list"></i>
+                        &nbsp; {{'UsageList' | translate}}
+                    </a>
+                </div>
+            </li>
+
             <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
                     [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
@@ -396,6 +410,20 @@
                         {{'AddSecret' |
                         translate}}</a> <a class="dropdown-item" [routerLink]="['/secretlist']"> <i class="fa fa-list"></i>
                         &nbsp; {{'SecretList' | translate}}
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown" style="padding-left: 5px"><a class="nav-link dropdown-toggle"
+                    [routerLink]="['/#']" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <font style="color: white;">{{'Api' | translate}}</font>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/api']"><i class="fa fa-calculator"></i> &nbsp;
+                        {{'AddApi' |
+                        translate}}</a> <a class="dropdown-item" [routerLink]="['/apilist']"> <i class="fa fa-list"></i>
+                        &nbsp; {{'ApiList' | translate}}
                     </a>
                 </div>
             </li>

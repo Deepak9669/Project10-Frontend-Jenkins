@@ -54,6 +54,10 @@ import { ReleaseComponent } from './release/release.component';
 import { ReleaselistComponent } from './release/releaselist.component';
 import { SecretComponent } from './secret/secret.component';
 import { SecretlistComponent } from './secret/secretlist.component';
+import { UsagelistComponent } from './usage/usagelist.component';
+import { UsageComponent } from './usage/usage.component';
+import { ApilistComponent } from './api/apilist.component';
+import { ApiComponent } from './api/api.component';
 
 
 const routes: Routes = [
@@ -442,6 +446,32 @@ const routes: Routes = [
   {
     path: 'secret/:id',
     component: SecretComponent
+  },
+
+  {
+    path: 'usage',
+    component: UsageComponent
+  },
+  {
+    path: 'usagelist',
+    component: UsagelistComponent
+  },
+  {
+    path: 'usage/:id',
+    component: UsageComponent
+  },
+
+  {
+    path: 'api',
+    component: ApiComponent
+  },
+  {
+    path: 'apilist',
+    component: ApilistComponent
+  },
+  {
+    path: 'api/:id',
+    component: ApiComponent
   }
 
 

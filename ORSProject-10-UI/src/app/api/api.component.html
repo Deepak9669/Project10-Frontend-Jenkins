@@ -1,0 +1,109 @@
+<div class="container-fluid" style="background-image: url('assets/img/email.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 25px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        Add API Key
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        Update API Key
+                    </h3>
+
+                    <!-- SUCCESS -->
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <!-- ERROR -->
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        {{form.message}}
+                    </div>
+
+                    <form>
+
+                        <!-- API KEY ID -->
+                        <label><b>API Key ID *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="number" class="form-control" [(ngModel)]="form.data.apiKeyId" name="apiKeyId"
+                                placeholder="Enter API Key ID">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.apiKeyId}}</span>
+                        </div>
+
+                        <!-- API KEY CODE -->
+                        <label><b>API Key Code *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.apiKeyCode" name="apiKeyCode"
+                                placeholder="Enter API Key Code">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.apiKeyCode}}</span>
+                        </div>
+
+                        <!-- KEY VALUE -->
+                        <label><b>Key Value *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.keyValue" name="keyValue"
+                                placeholder="Enter Key Value">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.keyValue}}</span>
+                        </div>
+
+                        <!-- ISSUED TO -->
+                        <label><b>Issued To *</b></label>
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" [(ngModel)]="form.data.issuedTo" name="issuedTo"
+                                placeholder="Enter Issued To">
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.issuedTo}}</span>
+                        </div>
+                        <!-- STATUS -->
+                        <label><b>Status *</b></label>
+                        <div class="input-group mb-2">
+                            <select class="form-control" [(ngModel)]="form.data.status" name="status">
+                                <option value="">--Select Status--</option>
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div>
+                            <span class="text-danger">{{form.inputerror.status}}</span>
+                        </div>
+                        <!-- BUTTONS -->
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+                                {{form.data.id ? 'Update' : 'Save'}}
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/apilist']">
+                                API List
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+                                Reset
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
