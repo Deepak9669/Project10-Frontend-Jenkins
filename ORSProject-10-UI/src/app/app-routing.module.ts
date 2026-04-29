@@ -58,6 +58,10 @@ import { UsagelistComponent } from './usage/usagelist.component';
 import { UsageComponent } from './usage/usage.component';
 import { ApilistComponent } from './api/apilist.component';
 import { ApiComponent } from './api/api.component';
+import { GymtrainerComponent } from './gymtrainer/gymtrainer.component';
+import { GymtrainerlistComponent } from './gymtrainer/gymtrainerlist.component';
+import { JobComponent } from './job/job.component';
+import { JoblistComponent } from './job/joblist.component';
 
 
 const routes: Routes = [
@@ -472,6 +476,33 @@ const routes: Routes = [
   {
     path: 'api/:id',
     component: ApiComponent
+  },
+  {
+    path: 'gymtrainer',
+    component: GymtrainerComponent
+  },
+  {
+    path: 'gymtrainerlist',
+    component: GymtrainerlistComponent
+  },
+  {
+    path: 'gymtrainer/:id',
+    component: GymtrainerComponent
+  },
+
+
+
+  {
+    path: 'job',
+    component: JobComponent
+  },
+  {
+    path: 'joblist',
+    component: JoblistComponent
+  },
+  {
+    path: 'job/:id',
+    component: JobComponent
   }
 
 

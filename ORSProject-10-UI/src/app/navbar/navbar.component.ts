@@ -57,4 +57,17 @@ export class NavbarComponent {
     this.form.data.userId = localStorage.getItem("userId");
     this.servicelocator.forward("/myprofile/" + this.form.data.userId);
   }
+
+   isAdmin(): boolean {
+    return localStorage.getItem('role') === 'admin';
+  }
+
+  isFaculty(): boolean {
+    return localStorage.getItem('role') === 'faculty';
+  }
+  
+  isStudent(): boolean {
+    return localStorage.getItem('role') === 'student';
+  }
+
 }

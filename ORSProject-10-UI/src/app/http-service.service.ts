@@ -54,10 +54,6 @@ export class HttpServiceService {
   // 🔥 CENTRALIZED ERROR HANDLER
   private handleError(error: any, callback?: any) {
 
-    if (error.status === 401 || error.status === 403) {
-      return;           // 🔥 interceptor handle karega
-    }
-
     let message = '';
 
     if (error.status === 0) {
@@ -73,9 +69,6 @@ export class HttpServiceService {
       message = 'Internal server error';
     }
 
-    // else {
-    //   message = 'Something went wrong';
-    // }
 
     this.router.navigate([this.router.url], {
       queryParams: { errorMessage: message }

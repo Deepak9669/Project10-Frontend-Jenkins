@@ -73,6 +73,10 @@ import { UsageComponent } from './usage/usage.component';
 import { UsagelistComponent } from './usage/usagelist.component';
 import { ApiComponent } from './api/api.component';
 import { ApilistComponent } from './api/apilist.component';
+import { GymtrainerComponent } from './gymtrainer/gymtrainer.component';
+import { GymtrainerlistComponent } from './gymtrainer/gymtrainerlist.component';
+import { JobComponent } from './job/job.component';
+import { JoblistComponent } from './job/joblist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -141,7 +145,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     UsageComponent,
     UsagelistComponent,
     ApiComponent,
-    ApilistComponent
+    ApilistComponent,
+    GymtrainerComponent,
+    GymtrainerlistComponent,
+    JobComponent,
+    JoblistComponent
 
   ],
   imports: [

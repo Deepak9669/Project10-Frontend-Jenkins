@@ -39,6 +39,8 @@ export class EndpointServiceService {
   public SECRET = this.SERVER_URL+ "/Secret";
   public USAGE = this.SERVER_URL+ "/Usage";
   public API = this.SERVER_URL+ "/Api";
+  public GYM_TRAINER = this.SERVER_URL+ "/GymTrainer";
+  public JOB = this.SERVER_URL+ "/Job";
   public JASPERREPORT = this.SERVER_URL+ "/Jasper";
  
 }
