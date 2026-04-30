@@ -11,6 +11,7 @@ export class JobComponent extends BaseCtl{
 
   constructor(private locator : ServiceLocatorService , route : ActivatedRoute) {
     super(locator.endpoints.JOB , locator , route);
+    
   }
 
 }
