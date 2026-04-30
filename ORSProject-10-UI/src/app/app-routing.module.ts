@@ -62,6 +62,8 @@ import { GymtrainerComponent } from './gymtrainer/gymtrainer.component';
 import { GymtrainerlistComponent } from './gymtrainer/gymtrainerlist.component';
 import { JobComponent } from './job/job.component';
 import { JoblistComponent } from './job/joblist.component';
+import { CityComponent } from './city/city.component';
+import { CitylistComponent } from './city/citylist.component';
 
 
 const routes: Routes = [
@@ -503,6 +505,19 @@ const routes: Routes = [
   {
     path: 'job/:id',
     component: JobComponent
+  },
+
+  {
+    path: 'city',
+    component: CityComponent
+  },
+  {
+    path: 'citylist',
+    component: CitylistComponent
+  },
+  {
+    path: 'city/:id',
+    component: CityComponent
   }
 
 
