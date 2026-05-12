@@ -1,0 +1,155 @@
+<div class="container-fluid" style="background-image: url('assets/img/cyber.jpg');
+     background-size: cover;
+     background-attachment: fixed;
+     min-height: 100vh;
+     padding-top: 50px;
+     padding-bottom: 50px;">
+
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="card shadow-lg">
+                <div class="card-body">
+
+                    <!-- TITLE -->
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="!form.data.id">
+                        {{'Add Account' | translate}}
+                    </h3>
+
+                    <h3 class="text-center text-primary mb-3" *ngIf="form.data.id">
+                        {{'Update Account' | translate}}
+                    </h3>
+
+                    <!-- SUCCESS -->
+
+                    <div *ngIf="!form.error && form.message" class="alert alert-success text-center">
+
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                        {{form.message}}
+
+                    </div>
+
+                    <!-- ERROR -->
+
+                    <div *ngIf="form.error && form.message" class="alert alert-danger text-center">
+
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+                        {{form.message}}
+
+                    </div>
+
+                    <form>
+
+                        <!-- ACCOUNT NUMBER -->
+
+                        <label>
+                            <b>{{'AccountNumber' | translate}} *</b>
+                        </label>
+
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.accountCode"
+                            placeholder="Enter Account Code" name="accountCode">
+
+                        <div>
+                            <span class="text-danger">
+                                {{form.inputerror.accountCode}}
+                            </span>
+                        </div>
+
+                        <!-- HOLDER NAME -->
+
+                        <label>
+                            <b>{{'UserName' | translate}} *</b>
+                        </label>
+
+                        <input type="text" class="form-control mb-2" [(ngModel)]="form.data.userName"
+                            placeholder="Enter User Name" name="userName">
+
+                        <div>
+                            <span class="text-danger">
+                                {{form.inputerror.userName}}
+                            </span>
+                        </div>
+
+                        <!-- ACCOUNT TYPE -->
+
+                        <label>
+                            <b>{{'AccountType' | translate}} *</b>
+                        </label>
+
+                        <select class="form-control mb-2" [(ngModel)]="form.data.accountType" name="accountType">
+
+                            <option value="undefined">
+                                ----Select Account Type----
+                            </option>
+
+                            <option value="Saving">Saving</option>
+                            <option value="Current">Current</option>
+                            <option value="Salary">Salary</option>
+
+                        </select>
+
+                        <div>
+                            <span class="text-danger">
+                                {{form.inputerror.accountType}}
+                            </span>
+                        </div>
+
+                      
+                        <!-- STATUS -->
+
+                        <label>
+                            <b>{{'Status' | translate}} *</b>
+                        </label>
+
+                        <select class="form-control mb-2" [(ngModel)]="form.data.status" name="status">
+
+                            <option value="undefined">
+                                ----Select Status----
+                            </option>
+
+                            <option value="Active">Active</option>
+                            <option value="Inactive">Inactive</option>
+
+                        </select>
+
+                        <div>
+                            <span class="text-danger">
+                                {{form.inputerror.status}}
+                            </span>
+                        </div>
+
+                        <!-- BUTTONS -->
+
+                        <div class="text-center mt-3">
+
+                            <button type="button" class="btn btn-success me-2" (click)="submit()">
+
+                                {{ form.data.id ? ('Update' | translate) : ('Save' | translate) }}
+
+                            </button>
+
+                            <button *ngIf="form.data.id" class="btn btn-warning" [routerLink]="['/accountlist']">
+
+                                {{ 'AccountList' | translate }}
+
+                            </button>
+
+                            <button *ngIf="!form.data.id" type="button" class="btn btn-warning" (click)="reset()">
+
+                                {{ 'Reset' | translate }}
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -25,7 +25,7 @@ export class AuthService implements HttpInterceptor {
         setHeaders: {
           withCredentials: 'true',
           name: 'Deepak',
-          Authorization: this.token,
+         Authorization: this.token,
         },
       });
     }

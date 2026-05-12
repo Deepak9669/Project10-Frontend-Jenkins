@@ -79,6 +79,8 @@ import { JobComponent } from './job/job.component';
 import { JoblistComponent } from './job/joblist.component';
 import { CityComponent } from './city/city.component';
 import { CitylistComponent } from './city/citylist.component';
+import { AccountstatusComponent } from './accountstatus/accountstatus.component';
+import { AccountstatuslistComponent } from './accountstatus/accountstatuslist.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -153,7 +155,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     JobComponent,
     JoblistComponent,
     CityComponent,
-    CitylistComponent
+    CitylistComponent,
+    AccountstatusComponent,
+    AccountstatuslistComponent
 
   ],
   imports: [

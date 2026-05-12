@@ -64,6 +64,8 @@ import { JobComponent } from './job/job.component';
 import { JoblistComponent } from './job/joblist.component';
 import { CityComponent } from './city/city.component';
 import { CitylistComponent } from './city/citylist.component';
+import { AccountstatusComponent } from './accountstatus/accountstatus.component';
+import { AccountstatuslistComponent } from './accountstatus/accountstatuslist.component';
 
 
 const routes: Routes = [
@@ -518,7 +520,21 @@ const routes: Routes = [
   {
     path: 'city/:id',
     component: CityComponent
+  },
+
+  {
+    path: 'account',
+    component: AccountstatusComponent
+  },
+  {
+    path: 'accountlist',
+    component: AccountstatuslistComponent
+  },
+  {
+    path: 'account/:id',
+    component: AccountstatusComponent
   }
+
 
 
 ];

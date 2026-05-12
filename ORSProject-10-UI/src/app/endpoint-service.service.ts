@@ -42,6 +42,7 @@ export class EndpointServiceService {
   public GYM_TRAINER = this.SERVER_URL+ "/GymTrainer";
   public JOB = this.SERVER_URL+ "/Job";
   public CITY = this.SERVER_URL+ "/City";
+  public ACCOUNTSTATUS = this.SERVER_URL+ "/Account"; 
   public JASPERREPORT = this.SERVER_URL+ "/Jasper";
  
 }

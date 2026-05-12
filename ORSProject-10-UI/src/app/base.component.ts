@@ -74,12 +74,12 @@ export class BaseCtl implements OnInit {
 
     preload() {
         var _self = this;
-        this.serviceLocator.httpService.get(_self.api.preload, function (res: any) {
+        this.serviceLocator.httpService.get(_self.api.preload,  (res: any) => {
             if (res.success) {
-                _self.form.preload = res.result;
+                this.form.preload = res.result;
             } else {
-                _self.form.error = true;
-                _self.form.message = res.result.message;
+                this.form.error = true;
+                this.form.message = res.result.message;
             }
         });
     }
