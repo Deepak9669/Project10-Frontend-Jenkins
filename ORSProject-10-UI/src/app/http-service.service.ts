@@ -15,7 +15,7 @@ export class HttpServiceService {
   post(endpoint: any, bean: any, callback?: any) {
     return this.httpClient.post(endpoint, bean).subscribe(
       (data) => {
-        if (callback) callback(data);
+         callback(data);
       },
       (error) => {
         this.handleError(error, callback);
@@ -26,7 +26,7 @@ export class HttpServiceService {
   get(endpoint: any, callback?: any) {
     return this.httpClient.get(endpoint).subscribe(
       (data) => {
-        if (callback) callback(data);
+       callback(data);
       },
       (error) => {
         this.handleError(error, callback);
