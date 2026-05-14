@@ -11,6 +11,7 @@ export class AccountstatuslistComponent extends BaseListCtl{
 
   constructor(private locator : ServiceLocatorService , route : ActivatedRoute) {
     super(locator.endpoints.ACCOUNTSTATUS , locator , route);
+    
     }
 
 }
