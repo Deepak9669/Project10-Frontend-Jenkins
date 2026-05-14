@@ -44,5 +44,6 @@ export class EndpointServiceService {
   public CITY = this.SERVER_URL+ "/City";
   public ACCOUNTSTATUS = this.SERVER_URL+ "/Account"; 
   public JASPERREPORT = this.SERVER_URL+ "/Jasper";
+  
  
 }
